@@ -15,31 +15,53 @@
 import numpy
 import networkx
 # import matplotlib.pyplot as plt
+from collections import deque
 
 
 
 def depthFirst(vertex):
 	S = [] # empty stack
 
-	for node in graph.nodes():
-		nodes[node] = False
+	for node in graph.nodes(): # set all nodes as not being visited yet
+		visitedNodes[node] = False
          
 	S.append(vertex)
          
 	while (S):
 		u = S.pop()
 
-		if (not nodes[u]):
-			nodes[u] = True
+		if (not visitedNodes[u]):
+			visitedNodes[u] = True
 
 			for neighbor in graph.neighbors(u):
-				if (not nodes[neighbor]):
+				if (not visitedNodes[neighbor]):
 					S.append(neighbor)
 
 
 
+def breadthFirst(vertex):
+	q = deque([vertex]) # queue containing vertex
+
+	for node in graph.nodes(): # set all nodes as not being visited yet
+		visitedNodes[node] = False
+
+ 
+	while len(q) > 0:
+		node = q.pop()
+
+		if visitedNodes[node]:
+			continue
+
+		visitedNodes[node] = True
+
+		for neighbor in graph.neighbors(node):
+			if (not visitedNodes[neighbor]):
+				q.appendleft(neighbor)
+
+
+
 isConnectedGraph = True
-nodes = {}
+visitedNodes = {}
 
 
 
@@ -61,9 +83,11 @@ graph.edges(data=True)
 
 
 
-depthFirst(graph.nodes()[0])
+# depthFirst(graph.nodes()[0])
 
-for key, value in nodes.items():
+# breadthFirst(graph.nodes()[0])
+
+for key, value in visitedNodes.items():
 	if (value == False):
 		isConnectedGraph = False;
 

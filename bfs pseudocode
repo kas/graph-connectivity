@@ -1,3 +1,4 @@
+set graph object;
 set visited to empty dictionary;
 
 procedure breadthFirst(graph, vertex)

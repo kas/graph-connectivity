@@ -1,6 +1,7 @@
+set graph object;
 set visited to empty dictionary;
 
-procedure depthFirst(graph, vertex)
+procedure depthFirst(vertex)
    set s to empty stack;
    
    for each currentVertex in graph do
