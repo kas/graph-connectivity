@@ -1,0 +1,18 @@
+set visited to empty dictionary;
+
+procedure depthFirst(graph, vertex):
+   set s to empty stack;
+   
+   for each currentVertex in graph do
+      set visited[currentVertex] to false;
+
+   push vertex onto stack;
+   
+   while (S is not empty) do
+      set u to S.pop();
+
+      if (not visited[u]) then
+         set visited[u] to true;
+            for each neighbour w of u do
+               if not visited[w] do
+                  push S, w;
