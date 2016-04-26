@@ -12,7 +12,7 @@ procedure depthFirst(graph, vertex)
       set u to pop s;
 
       if not visited[u] then
-         set visited[u] to true;
+         set visited[u] to True;
             for each neighbour neighbor of u do
-               if not visited[neighbor] do
-                  push s, neighbor;
+               if not visited[neighbor] then
+                  push neighbor onto s;

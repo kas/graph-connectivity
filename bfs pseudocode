@@ -1,0 +1,16 @@
+set visited to empty dictionary;
+
+procedure breadthFirst(graph, vertex)
+   set q to queue initialized with vertex;
+ 
+   while q is not empty do
+      set node to pop q;
+
+      if visited[node] then
+         continue;
+ 
+      set visited[node] to True;
+ 
+      for each neighbor neighbor of node do
+         if not visited[neighbor] then
+            append neighbor to q;
