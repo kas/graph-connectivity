@@ -1,17 +1,3 @@
-# undirected connected
-# 0 1 1 0 0 0;1 0 0 0 0 1;1 0 0 1 1 0;0 0 1 0 0 0;0 0 1 0 0 0;0 1 0 0 0 0
-
-# undirected disconnected
-# 0 1 1 0 0 0;1 0 0 0 0 0;1 0 0 1 1 0;0 0 1 0 0 0;0 0 1 0 0 0;0 0 0 0 0 0
-
-# directed connected
-# 0 1 0 0 0 0;0 0 1 0 0 0;0 0 0 0 0 1;1 0 0 0 0 0;0 0 0 1 0 0;0 0 0 0 1 0
-
-# directed disconnected
-# 0 0 0 0 0 0;1 0 1 0 0 0;0 0 0 0 0 0;1 0 0 0 0 0;0 0 0 1 0 0;0 0 1 0 1 0
-
-
-
 import numpy
 import networkx
 # import matplotlib.pyplot as plt
@@ -19,34 +5,13 @@ from collections import deque
 
 
 
-def depthFirst(vertex):
-	S = [] # empty stack
-
-	for node in graph.nodes(): # set all nodes as not being visited yet
-		visitedNodes[node] = False
-         
-	S.append(vertex)
-         
-	while (S):
-		u = S.pop()
-
-		if (not visitedNodes[u]):
-			visitedNodes[u] = True
-
-			for neighbor in graph.neighbors(u):
-				if (not visitedNodes[neighbor]):
-					S.append(neighbor)
-
-
-
 def breadthFirst(vertex):
-	q = deque([vertex]) # queue containing vertex
+	q = deque([vertex])
 
-	for node in graph.nodes(): # set all nodes as not being visited yet
-		visitedNodes[node] = False
-
+	for node in graph.nodes():
+		visitedNodes[node] = False # o(n)
  
-	while len(q) > 0:
+	while len(q) > 0: # o(n)
 		node = q.pop()
 
 		if visitedNodes[node]:
@@ -56,7 +21,27 @@ def breadthFirst(vertex):
 
 		for neighbor in graph.neighbors(node):
 			if (not visitedNodes[neighbor]):
-				q.appendleft(neighbor)
+				q.appendleft(neighbor) # o(n^2-n)
+
+
+
+def depthFirst(vertex):
+	S = []
+
+	for node in graph.nodes():
+		visitedNodes[node] = False # o(n)
+
+	S.append(vertex)
+         
+	while (S): # o(n)
+		u = S.pop()
+
+		if (not visitedNodes[u]):
+			visitedNodes[u] = True
+
+			for neighbor in graph.neighbors(u):
+				if (not visitedNodes[neighbor]):
+					S.append(neighbor) # o(n^2-n)
 
 
 
@@ -85,7 +70,7 @@ graph.edges(data=True)
 
 # depthFirst(graph.nodes()[0])
 
-# breadthFirst(graph.nodes()[0])
+breadthFirst(graph.nodes()[0])
 
 for key, value in visitedNodes.items():
 	if (value == False):
