@@ -6,4 +6,4 @@ I was tasked to create a program that would determine if a graph was connected f
 I received a 100% on the project.
 
 # Overview
-Please see the project report for more information.
+Please see the [project report](https://github.com/kas/Graph-Connectivity/blob/master/Report.pdf) for detailed information.
