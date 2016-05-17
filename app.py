@@ -1,6 +1,6 @@
 import numpy
 import networkx
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 from collections import deque
 
 
@@ -62,9 +62,9 @@ graph.edges(data=True)
 
 
 # CODE TO DRAW GRAPH WITH MATPLOTLIB.PYPLOT
-# pos = networkx.shell_layout(graph)
-# networkx.draw(graph)
-# plt.show()
+pos = networkx.shell_layout(graph)
+networkx.draw(graph)
+plt.show()
 
 
 
