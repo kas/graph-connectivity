@@ -1,10 +1,10 @@
 # graph-connectivity
 
-![Console I/O](https://raw.github.com/kas/graph-connectivity/master/img/console.png)
+![console i/o](https://raw.github.com/kas/graph-connectivity/master/img/console.png)
 
-![Directed Disconnected Graph drawn with NetworkX](https://raw.github.com/kas/graph-connectivity/master/img/directed_disconnected_graph_networkx.png)
+![directed disconnected graph drawn with NetworkX](https://raw.github.com/kas/graph-connectivity/master/img/directed_disconnected_graph_networkx.png)
 
-![Undirected Connected Graph drawn with NetworkX](https://raw.github.com/kas/graph-connectivity/master/img/undirected_connected_graph_networkx.png)
+![undirected connected graph drawn with NetworkX](https://raw.github.com/kas/graph-connectivity/master/img/undirected_connected_graph_networkx.png)
 
 # Introduction
 
